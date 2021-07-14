@@ -3,7 +3,7 @@ pipeline {
     environment { 
 
         registry = "pegpet/repo" 
-        registryCredential = 'pegpet' 
+        registryCredential = 'dockerhub_id' 
         dockerImage = '' 
     }
 
