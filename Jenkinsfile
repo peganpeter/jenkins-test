@@ -6,7 +6,7 @@ pipeline {
     stages { 
         stage('Building our image') { 
             steps { 
-                 'docker build -t peganpeter/jenkins-test'
+                sh 'docker build -t peganpeter/jenkins-test'
             } 
         }
         stage('Deploy our image') { 
