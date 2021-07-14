@@ -8,7 +8,7 @@ function nameList(name) {
   list.appendChild(liElem);
 }
 
-const URL = 'http://35.181.9.255:3000/names';
+const URL = `${window.location.origin}/names`;
 
 window.onload = () => {
   fetch(URL)
@@ -28,7 +28,7 @@ window.addEventListener('load', () => {
   form.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const URL = 'http://35.181.9.255:3000/add';
+    const URL = `${window.location.origin}/add`;
 
     let data = {
       name: event.target.nametxt.value
