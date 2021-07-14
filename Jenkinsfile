@@ -1,5 +1,4 @@
-pipeline {  
-    agent any   
+node {    
       def app     
       stage('Clone repository') {               
             checkout scm    
@@ -21,7 +20,10 @@ pipeline {
            }
         }
        stage('Docker Run') {
+           steps {
                sh """
                 docker run -p 8090:3000 --rm --name testContainer
                 """
+               }
+           }
 }
