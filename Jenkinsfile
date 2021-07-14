@@ -4,7 +4,7 @@ node {
             checkout scm    
       }
       stage('Build image') {          
-            app = docker.build("pegpet/repo")    
+            app = docker.build("repo")    
        }           
        stage('Test image') {
             app.inside {            
