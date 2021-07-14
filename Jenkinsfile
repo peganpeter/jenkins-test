@@ -1,10 +1,8 @@
 pipeline { 
-    environment { 
-        registry = "pegpet/repo" 
-        registryCredential = 'dockerhub_id' 
-        dockerImage = '' 
-    }
     agent any 
+    environment { 
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub_id')
+    }
     stages { 
         stage('Building our image') { 
             steps { 
