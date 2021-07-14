@@ -24,3 +24,5 @@ node {
                 script {
                 dockerImage.run("-p 8090:3000 --rm --name jenkisn-test")
         }
+    }
+}
