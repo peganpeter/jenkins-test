@@ -19,8 +19,10 @@ node {
               }    
            }
         }
-        stage('Docker Run') {
+       stage('Docker Run') {
+            steps{
                 script {
-                dockerImage.run("--name jenkins-test -p 8090:3000 jenkins/jenkinstest")
+                app.run("-p 8096:3000 --rm --name testContainer")
         }
+    }
 }
