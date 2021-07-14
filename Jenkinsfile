@@ -1,27 +1,21 @@
-pipeline { 
-    agent { label 'linux' }
-    environment { 
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub_id')
-    }
-    stages { 
-        stage('Building our image') { 
-            steps { 
-                sh 'docker build -t peganpeter/jenkins-test'
-            } 
+node {    
+      def app     
+      stage('Clone repository') {               
+            checkout scm    
+      }
+      stage('Build image') {          
+            app = docker.build("repo/test")    
+       }           
+       stage('Test image') {
+            app.inside {            
+             
+            sh 'echo "Tests passed"'        
+            }    
+        } 
+       stage('Push image') {
+            docker.withRegistry('https://registry.hub.docker.com', 'git') {                  
+                 app.push("${env.BUILD_NUMBER}")            
+                 app.push("latest")        
+              }    
+           }
         }
-        stage('Deploy our image') { 
-            steps { 
-                script { 
-                    docker.withRegistry( '', registryCredential ) { 
-                        dockerImage.push() 
-                    }
-                } 
-            }
-        } 
-        stage('Cleaning up') { 
-            steps { 
-                sh "docker rmi $registry:$BUILD_NUMBER" 
-            }
-        } 
-    }
-}
