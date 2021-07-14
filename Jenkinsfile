@@ -21,9 +21,7 @@ node {
         }
        stage('Docker Run') {
            steps {
-               sh """
-                docker run -p 8090:3000 --rm --name testContainer
-                """
+               sh "docker run -p 8090:3000 --rm --name testContainer"
                }
            }
 }
