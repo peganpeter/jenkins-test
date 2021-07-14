@@ -1,12 +1,12 @@
 pipeline { 
-    agent any 
+    agent { label 'linux' }
     environment { 
         DOCKERHUB_CREDENTIALS = credentials('dockerhub_id')
     }
     stages { 
         stage('Building our image') { 
             steps { 
-                sudo 'docker build -t peganpeter/jenkins-test'
+                sh 'docker build -t peganpeter/jenkins-test'
             } 
         }
         stage('Deploy our image') { 
