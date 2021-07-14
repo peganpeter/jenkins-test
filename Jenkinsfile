@@ -6,9 +6,7 @@ pipeline {
     stages { 
         stage('Building our image') { 
             steps { 
-                script { 
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER" 
-                }
+                sh 'docker build -t peganpeter/jenkins-test'
             } 
         }
         stage('Deploy our image') { 
