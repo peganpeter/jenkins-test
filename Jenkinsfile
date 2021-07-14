@@ -22,7 +22,7 @@ node {
        stage('Docker Run') {
             steps{
                 script {
-                app.run("-p 8096:3000 --rm --name testContainer")
+                app.run("-p 8090:3000 --rm --name testContainer")
         }
     }
 }
