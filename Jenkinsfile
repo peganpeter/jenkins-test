@@ -20,7 +20,9 @@ node {
            }
         }
        stage('Docker Run') {
-           script {
-                docker.run("-p 8090:3000 --rm --name testContainer")
+           steps {
+               sh """
+                docker run -p 8090:3000 --rm --name testContainer
+                """
            }
 }
