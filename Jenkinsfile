@@ -19,6 +19,6 @@ node {
               }    
            }
        stage('Docker Run') {
-               sh 'docker run -i --name jenkins-test -p 8090:3000 jenkins-test'
+               sh 'docker run -i --name latest -p 8090:3000 jenkins-test'
         }
 }
