@@ -19,6 +19,6 @@ node {
               }    
            }
        stage('Docker Run') {
-               sh 'docker run -i -p 8030:3000 --rm --name jenkins-test'
+               sh 'docker run -i --name jenkins-test -p 8030:3000 pegpet/repo:latest'
         }
 }
