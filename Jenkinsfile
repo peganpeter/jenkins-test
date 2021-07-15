@@ -19,6 +19,6 @@ node {
               }    
            }
        stage('Docker Run') {
-               sh `docker run -i --name jenkins-test -p 8090:3000 ${env.BUILD_NUMBER}`
+               sh "docker run -i --name jenkins-test -p 8090:3000 ${env.BUILD_NUMBER}"
         }
 }
