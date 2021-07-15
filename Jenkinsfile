@@ -19,6 +19,6 @@ node {
               }    
            }
        stage('Docker Run') {
-               sh 'docker run -p 8090:3000 --rm --name testContainer'
+               sh 'docker run -it --name jenkins-test -p 8090:3000 jenkins-test'
         }
 }
