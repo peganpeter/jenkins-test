@@ -18,7 +18,7 @@ node {
                  app.push("latest")        
               }    
            }
-        }
        stage('Docker Run') {
-               sh "docker run -p 8090:3000 --rm --name testContainer"
-           }
+               sh 'docker run -p 8090:3000 --rm --name testContainer'
+        }
+}
